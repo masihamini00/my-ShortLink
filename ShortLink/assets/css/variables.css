@@ -1,0 +1,23 @@
+:root {
+    /* نقش‌های اصلی */
+    --color-primary: #4da6ff;
+    --color-on-primary: #ffffff;
+    --color-secondary: #1565c0;
+    --color-on-secondary: #ffffff;
+
+    /* نقش‌های زمینه */
+    --color-background: #f5f7fa;
+    --color-on-background: #1a1a1a;
+    --color-surface: #ffffff;
+    --color-on-surface: #1a1a1a;
+
+    /* نقش‌های هشدار / تأیید */
+    --color-error: #d32f2f;
+    --color-on-error: #ffffff;
+    --color-success: #2e7d32;
+    --color-on-success: #ffffff;
+
+    /* نقش‌های اضافی */
+    --color-border: #d0d7de;
+    --color-placeholder: #9e9e9e;
+}
