@@ -1,0 +1,131 @@
+/* ======== تنظیمات کلی ======== */
+body {
+    font-family: 'Vazir', sans-serif;
+    background-color: #f9fbff;
+    color: #222;
+    margin: 0;
+    padding: 0;
+    direction: rtl;
+}
+
+/* ======== هدر ======== */
+header {
+    background-color: #007bff;
+    color: white;
+    text-align: center;
+    padding: 20px 10px;
+    border-bottom: 3px solid #0056b3;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 1.8rem;
+}
+
+nav {
+    margin-top: 10px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: bold;
+    padding: 6px 10px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+
+nav a:hover, nav a.active {
+    background-color: #0056b3;
+}
+
+/* ======== محتوای اصلی ======== */
+main {
+    max-width: 600px;
+    margin: 50px auto;
+    background-color: white;
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+main h2 {
+    color: #0056b3;
+    margin-bottom: 10px;
+}
+
+main p {
+    color: #444;
+    margin-bottom: 25px;
+}
+
+/* ======== فرم کوتاه کردن لینک ======== */
+.shorten-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+label {
+    text-align: right;
+    font-weight: bold;
+    color: #333;
+}
+
+input[type="url"], input[type="text"] {
+    padding: 10px;
+    border: 2px solid #d0e2ff;
+    border-radius: 10px;
+    font-size: 1rem;
+    transition: 0.2s;
+}
+
+input[type="url"]:focus, input[type="text"]:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 5px #b3d1ff;
+}
+
+/* ======== دکمه‌ها ======== */
+button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: 0.3s;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* ======== بخش نمایش لینک کوتاه ======== */
+.result-box {
+    margin-top: 25px;
+    padding: 15px;
+    border: 2px dashed #b3d1ff;
+    border-radius: 10px;
+    background-color: #f0f6ff;
+}
+
+.result-box input {
+    width: 80%;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+/* ======== فوتر ======== */
+footer {
+    text-align: center;
+    background-color: #f0f6ff;
+    color: #555;
+    padding: 15px;
+    margin-top: 50px;
+    font-size: 0.9rem;
+    border-top: 1px solid #cfe3ff;
+}

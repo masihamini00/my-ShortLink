@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>کوتاه‌کننده لینک | جم پلی</title>
+    <link rel="stylesheet" href="../assets/css/pages/style_shorten.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>کوتاه‌کننده لینک جم پلی</h1>
+        <nav>
+            <a href="index.html">خانه</a>
+            <a href="about.html">درباره ما</a>
+            <a href="contact.html">تماس با ما</a>
+            <a href="shorten.html" class="active">کوتاه‌کننده لینک</a>
+        </nav>
+    </header>
+
+    <main class="shorten-section">
+        <h2>لینک بلندت رو کوتاه کن ✂️</h2>
+        <p>کافیه لینک طولانی خودت رو وارد کنی تا یه لینک کوتاه و مرتب تحویل بگیری 😍</p>
+
+        <form class="shorten-form">
+            <label for="longUrl">لینک اصلی:</label>
+            <input type="url" id="longUrl" name="longUrl" placeholder="مثلاً https://example.com/your-long-link"
+                required>
+
+            <button type="submit">کوتاه کن</button>
+        </form>
+
+        <div class="result-box" id="resultBox" style="display:none;">
+            <p>لینک کوتاه‌شده شما:</p>
+            <input type="text" id="shortUrl" readonly>
+            <button onclick="copyShortUrl()">کپی لینک</button>
+        </div>
+    </main>
+
+    <footer>
+        <p>© تمامی حقوق برای جم پلی محفوظ است 🌙</p>
+    </footer>
+
+    <script>
+        document.querySelector('.shorten-form').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const longUrl = document.getElementById('longUrl').value;
+
+            // شبیه‌سازی تولید لینک کوتاه
+            const shortUrl = "https://jmpl.ly/" + Math.random().toString(36).substring(7);
+
+            document.getElementById('shortUrl').value = shortUrl;
+            document.getElementById('resultBox').style.display = 'block';
+        });
+
+        function copyShortUrl() {
+            const shortUrlInput = document.getElementById('shortUrl');
+            shortUrlInput.select();
+            document.execCommand('copy');
+            alert('لینک کپی شد!');
+        }
+    </script>
+
+</body>
+
+</html>

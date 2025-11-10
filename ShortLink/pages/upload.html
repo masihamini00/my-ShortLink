@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>آپلود فایل | جم پلی</title>
+    <link rel="stylesheet" href="../assets/css/pages/upload.css">
+</head>
+<body>
+    <header>
+        <h1>جم پلی</h1>
+        <nav>
+            <a href="index.html">صفحه اصلی</a>
+            <a href="shorten.html">کوتاه‌کننده لینک</a>
+            <a href="upload.html" class="active">آپلود فایل</a>
+            <a href="about.html">درباره ما</a>
+            <a href="contact.html">تماس با ما</a>
+        </nav>
+    </header>
+
+    <main>
+        <h2>📤 آپلود فایل</h2>
+        <p>فایل مورد نظرت رو انتخاب کن تا لینک دانلودش برات ساخته بشه.</p>
+
+        <form class="upload-form" enctype="multipart/form-data">
+            <label for="fileInput">انتخاب فایل:</label>
+            <input type="file" id="fileInput" name="fileInput" required>
+
+            <label for="desc">توضیح فایل (اختیاری):</label>
+            <textarea id="desc" name="desc" placeholder="مثلاً: تصویر پروفایل جدید..." rows="4"></textarea>
+
+            <button type="submit">آپلود فایل</button>
+        </form>
+
+        <div class="result-box">
+            <p>🔗 لینک فایل آپلودشده:</p>
+            <input type="text" readonly value="https://jemplay.ir/dl/abc123">
+            <button>کپی لینک</button>
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2025 جم پلی | تمامی حقوق محفوظ است</p>
+    </footer>
+</body>
+</html>
