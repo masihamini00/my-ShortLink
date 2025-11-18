@@ -1,10 +1,12 @@
 :root {
     --primary-color: #3ca9e2;
+    --on-primary: #ffffff;
     --secondary-color: #f4faff;
     --text-color: #222;
     --hover-color: #2f93c8;
 }
 
+/* پایه عمومی */
 body {
     margin: 0;
     font-family: "Vazir", sans-serif;
@@ -12,8 +14,10 @@ body {
     color: var(--text-color);
 }
 
-.navbar {
+/* هدر / منو */
+header.site-header {
     background-color: var(--primary-color);
+    color: var(--on-primary);
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -24,10 +28,10 @@ body {
 .logo {
     font-size: 1.5em;
     font-weight: bold;
-    color: white;
+    color: var(--on-primary);
 }
 
-.nav-links {
+.main-nav ul {
     list-style: none;
     display: flex;
     gap: 25px;
@@ -35,32 +39,41 @@ body {
     padding: 0;
 }
 
-.nav-links a {
-    color: white;
+.main-nav a {
+    color: var(--on-primary);
     text-decoration: none;
     font-weight: 500;
     transition: 0.3s;
 }
 
-.nav-links a:hover {
-    color: #fff;
+.main-nav a:hover {
     background-color: var(--hover-color);
     padding: 6px 12px;
     border-radius: 8px;
 }
 
-.content {
+/* بخش اصلی محتوا */
+main.main-content {
     text-align: center;
     margin-top: 80px;
 }
 
-.content h1 {
+main.main-content h1 {
     font-size: 2em;
     color: var(--primary-color);
 }
 
-.content p {
+main.main-content p {
     color: #444;
     margin-top: 10px;
     font-size: 1.1em;
+}
+
+/* فوتر */
+footer.site-footer {
+    background-color: var(--primary-color);
+    color: var(--on-primary);
+    text-align: center;
+    padding: 12px 0;
+    margin-top: 60px;
 }
