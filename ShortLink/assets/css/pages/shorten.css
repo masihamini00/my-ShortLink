@@ -1,0 +1,215 @@
+/* صفحه کوتاه‌کننده لینک (هماهنگ با صفحه اصلی و آپلود) */
+
+.main-content {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 40px 20px 60px;
+    flex: 1;
+}
+
+/* کارت اصلی کوتاه‌کننده لینک */
+.shorten-section {
+    background-color: rgba(255, 255, 255, 0.96);
+    padding: 28px 24px 26px;
+    border-radius: 20px;
+    box-shadow: 0 18px 40px rgba(15, 35, 60, 0.12);
+    border: 1px solid rgba(208, 215, 222, 0.7);
+    text-align: right;
+}
+
+.shorten-section h2 {
+    color: #0d47a1;
+    margin: 0 0 8px;
+    font-size: 1.3rem;
+}
+
+.shorten-section p {
+    color: #455a64;
+    margin: 0 0 18px;
+    font-size: 0.98rem;
+}
+
+/* --- سه مربع راهنما بالای فرم --- */
+
+.shorten-steps {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 22px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.step-card {
+    flex: 1 1 0;
+    min-width: 160px;
+    max-width: 220px;
+    background: #ffffff;
+    border-radius: 14px;
+    padding: 14px 12px;
+    text-align: center;
+    box-shadow: 0 10px 24px rgba(15, 35, 60, 0.08);
+    border: 1px solid rgba(208, 215, 222, 0.8);
+    transition: .25s;
+}
+
+.step-card:hover {
+    transform: translateY(-4px) scale(1.05);
+    box-shadow: 0 16px 32px rgba(15, 35, 60, 0.16);
+}
+
+.step-number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    background: #42a5f533;
+    color: #1565c0;
+    font-weight: 700;
+    border-radius: 50%;
+    margin-bottom: 6px;
+}
+
+.step-card h3 {
+    margin: 0 0 4px;
+    font-size: 1rem;
+    color: #0d47a1;
+}
+
+.step-card p {
+    margin: 0;
+    font-size: .82rem;
+    color: #546e7a;
+}
+
+/* --- فرم کوتاه کردن لینک --- */
+
+.shorten-form {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.shorten-form label {
+    font-weight: 600;
+    color: #37474f;
+    font-size: 0.9rem;
+}
+
+.shorten-form input[type="url"],
+.shorten-form input[type="text"],
+.shorten-form select {
+    border: 2px solid #d0e2ff;
+    background: #fff;
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 0.95rem;
+    transition: 0.15s;
+}
+
+.shorten-form input:focus,
+.shorten-form select:focus {
+    outline: none;
+    border-color: #42a5f5;
+    box-shadow: 0 0 6px rgba(60,169,226,0.18);
+}
+
+/* فیلدهای کنار هم (نام دلخواه + انقضا) */
+
+.inline-fields {
+    display: flex;
+    gap: 22px;       /* افزایش فاصله بین دو فیلد */
+    align-items: flex-end; /* پایین‌چین شدن فیلدها */
+    flex-wrap: wrap;
+}
+
+.field-group select {
+    margin-top: 8px;   /* فقط همین باعث پایین‌تر رفتن فیلد می‌شود */
+}
+
+
+.field-group {
+    flex: 1 1 220px;
+}
+
+.alias-wrapper {
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+    border: 2px solid #d0e2ff;
+    overflow: hidden;
+    background-color: #ffffff;
+}
+
+.alias-prefix {
+    padding: 8px 10px;
+    font-size: 0.85rem;
+    background-color: #e3f2fd;
+    color: #1565c0;
+    border-left: 1px solid #d0e2ff;
+    direction: ltr;
+}
+
+.alias-wrapper input {
+    border: none;
+    padding: 8px 10px;
+    flex: 1;
+    font-size: 0.9rem;
+}
+
+.alias-wrapper input:focus {
+    outline: none;
+}
+
+/* دکمه فرم از .btn .btn-primary عمومی استفاده می‌کند */
+.shorten-form .btn-primary {
+    margin-top: 6px;
+}
+
+/* --- نتیجه کوتاه‌شدن --- */
+
+.result-box {
+    margin-top: 22px;
+    padding: 16px 14px;
+    border-radius: 12px;
+    background-color: rgba(240,246,255,0.9);
+    border: 2px dashed rgba(60,169,226,0.35);
+    text-align: center;
+}
+
+.result-box p {
+    margin: 0 0 10px;
+    font-weight: 600;
+    color: #37474f;
+}
+
+.result-box input {
+    width: 85%;
+    max-width: 480px;
+    padding: 8px;
+    border-radius: 8px;
+    border: 1px solid #d0e2ff;
+    margin-bottom: 10px;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+.result-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+}
+
+.result-note {
+    font-size: 0.8rem;
+    color: #546e7a;
+}
+
+/* ریسپانسیو */
+
+@media (max-width: 700px) {
+    .shorten-steps {
+        justify-content: center;
+    }
+}

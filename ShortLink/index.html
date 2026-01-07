@@ -1,34 +1,204 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>منوی اصلی | روبی باکس</title>
+    <title>روبی باکس | کوتاه‌کننده لینک و آپلود فایل</title>
+
+    <!-- متغیرهای رنگ و ... -->
+    <link rel="stylesheet" href="assets/css/variables.css">
+    <!-- استایل اصلی -->
     <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="icon" type="image/png" href="assets/images/logo.png">
+    <link rel="shortcut icon" href="assets/images/logo.png">
 </head>
+
 <body>
 
+    <!-- پس‌زمینه خطوط رندوم -->
+    <canvas id="bg-network" aria-hidden="true"></canvas>
+
     <header class="site-header">
-        <div class="logo">روبی باکس</div>
+        <div class="logo">
+            <img src="assets/images/logo.png" alt="RUBYBOX logo">
+            <span>روبی باکس</span>
+        </div>
         <nav class="main-nav">
             <ul>
-                <li><a href="index.html">خانه</a></li>
-                <li><a href="pages/shorten.html">کوتاه‌کردن لینک</a></li>
+                <li><a href="index.html" class="active">خانه</a></li>
+                <li><a href="pages/shorten.html">کوتاه‌کننده لینک</a></li>
                 <li><a href="pages/upload.html">آپلود فایل</a></li>
+                <li><a href="pages/services.html">خدمات</a></li>
                 <li><a href="pages/about.html">درباره ما</a></li>
                 <li><a href="pages/contact.html">تماس با ما</a></li>
             </ul>
         </nav>
+        <div class="auth-buttons">
+            <a href="pages/signin.html" class="login-btn">ورود</a>
+            <a href="pages/signup.html" class="signup-btn">ثبت‌نام</a>
+        </div>
     </header>
 
     <main class="main-content">
-        <h1>به روبی باکس خوش آمدید 💙</h1>
-        <p>از منوی بالا برای استفاده از خدمات ما استفاده کنید.</p>
+
+        <!-- HERO -->
+        <section class="hero">
+            <div class="hero-badge">
+                جدید ✨ سرویس مدیریت لینک و فایل
+            </div>
+
+            <h1>
+                روبی باکس؛
+                <span>لینک‌هات رو کوتاه کن، فایلهات رو مرتب نگه دار</span>
+            </h1>
+
+            <p class="hero-subtitle">
+                کوتاه‌کردن لینک‌های بلند، ساخت لینک مستقیم دانلود و مدیریت ساده، همه در یک محیط سبک و سریع.
+            </p>
+
+            <div class="hero-actions">
+                <a href="pages/shorten.html" class="btn btn-primary">
+                    کوتاه‌کردن لینک 🚀
+                </a>
+                <a href="pages/upload.html" class="btn btn-ghost">
+                    آپلود فایل ⬆️
+                </a>
+            </div>
+
+            <div class="hero-meta">
+                <div class="meta-item">
+                    <span class="meta-number">0</span>
+                    <span class="meta-label">لینک کوتاه‌شده</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-number">0</span>
+                    <span class="meta-label">لینک دانلود فایل</span>
+                </div>
+                <div class="meta-item meta-note">
+                    <span class="meta-label small">به‌زودی آمار واقعی اینجا نمایش داده می‌شود 😉</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- FEATURES -->
+        <section class="features">
+            <div class="feature-card">
+                <h2>سرعت بالا ⚡</h2>
+                <p>
+                    طراحی سبک و بهینه که بعداً با بک‌اند جاوا هم می‌تونه خیلی سریع و مقیاس‌پذیر بشه.
+                </p>
+            </div>
+
+            <div class="feature-card">
+                <h2>رابط کاربری ساده 🎯</h2>
+                <p>
+                    بدون شلوغی اضافی؛ فقط چیزهایی که کاربر لازم دارد: یک لینک، یک فایل، یک کلیک.
+                </p>
+            </div>
+
+            <div class="feature-card">
+                <h2>قابل توسعه 🚀</h2>
+                <p>
+                    می‌تونی بعداً آمار حرفه‌ای، حساب کاربری، لاگ دانلود و کلی امکانات دیگر بهش اضافه کنی.
+                </p>
+            </div>
+        </section>
+
+        <!-- HOW IT WORKS -->
+        <section class="how-it-works">
+            <h2>چطور کار می‌کند؟</h2>
+            <ol class="steps">
+                <li>از منوی بالا «کوتاه‌کردن لینک» یا «آپلود فایل» را انتخاب کن.</li>
+                <li>لینک خودت رو وارد کن یا فایل رو انتخاب و آپلود کن.</li>
+                <li>یک لینک کوتاه و تمیز یا لینک دانلود مستقیم تحویل بگیر 😊</li>
+            </ol>
+        </section>
+
     </main>
 
     <footer class="site-footer">
-        © 2025 روبی باکس — تمام حقوق محفوظ است.
+        © 2025 روبی باکس — ساخته شده با عشق و کدنویسی ❤️
     </footer>
 
+    <!-- اسکریپت پس‌زمینه خطوط متحرک -->
+    <script>
+        (function () {
+            const canvas = document.getElementById("bg-network");
+            if (!canvas) return;
+            const ctx = canvas.getContext("2d");
+
+            let width, height, points;
+
+            function resize() {
+                width = canvas.width = window.innerWidth;
+                height = canvas.height = window.innerHeight;
+                createPoints();
+            }
+
+            function createPoints() {
+                const count = Math.floor((width * height) / 12000); // بر اساس سایز صفحه
+                points = [];
+                for (let i = 0; i < count; i++) {
+                    points.push({
+                        x: Math.random() * width,
+                        y: Math.random() * height,
+                        vx: (Math.random() - 0.5) * 0.7,
+                        vy: (Math.random() - 0.5) * 0.7
+                    });
+                }
+            }
+
+            function step() {
+                ctx.clearRect(0, 0, width, height);
+
+                // پس‌زمینه خیلی خیلی ملایم
+                // (خود body هم گرادیان داره، این فقط کمی افکت می‌ده)
+                // رسم نقاط
+                ctx.fillStyle = "rgba(33, 150, 243, 0.7)";
+                for (const p of points) {
+                    p.x += p.vx;
+                    p.y += p.vy;
+
+                    // برخورد به لبه‌ها
+                    if (p.x < 0 || p.x > width) p.vx *= -1;
+                    if (p.y < 0 || p.y > height) p.vy *= -1;
+
+                    ctx.beginPath();
+                    ctx.arc(p.x, p.y, 2, 0, Math.PI * 2);
+                    ctx.fill();
+                }
+
+                // رسم خطوط بین نقاط نزدیک
+                for (let i = 0; i < points.length; i++) {
+                    for (let j = i + 1; j < points.length; j++) {
+                        const p1 = points[i];
+                        const p2 = points[j];
+                        const dx = p1.x - p2.x;
+                        const dy = p1.y - p2.y;
+                        const dist = Math.sqrt(dx * dx + dy * dy);
+
+                        if (dist < 160) {
+                            const alpha = 1 - dist / 160;
+                            ctx.strokeStyle = "rgba(33, 150, 243," + (0.25 * alpha) + ")";
+                            ctx.lineWidth = 1;
+                            ctx.beginPath();
+                            ctx.moveTo(p1.x, p1.y);
+                            ctx.lineTo(p2.x, p2.y);
+                            ctx.stroke();
+                        }
+                    }
+                }
+
+                requestAnimationFrame(step);
+            }
+
+            window.addEventListener("resize", resize);
+            resize();
+            step();
+        })();
+    </script>
+
 </body>
+
 </html>

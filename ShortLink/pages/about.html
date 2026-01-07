@@ -1,60 +1,188 @@
 <!DOCTYPE html>
-<html lang="fa">
+<html lang="fa" dir="rtl">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>درباره ما | جم‌پلی</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>درباره ما | روبی باکس</title>
 
-  <!-- مسیرهای CSS مطابق ساختار قبلی -->
-  <link rel="stylesheet" href="../assets/css/variables.css">
-  <link rel="stylesheet" href="../assets/css/main.css">
-  <link rel="stylesheet" href="../assets/css/pages/about.css">
+    <link rel="stylesheet" href="../assets/css/variables.css">
+    <link rel="stylesheet" href="../assets/css/main.css">
+    <link rel="stylesheet" href="../assets/css/pages/about.css">
+    <link rel="icon" type="image/png" href="../assets/images/logo.png">
+    <link rel="shortcut icon" href="../assets/images/logo.png">
+
 </head>
+
 <body>
-  <!-- هدر ثابت (همان الگوی قبلی) -->
-  <header class="site-header">
-    <div class="container">
-      <div class="logo">🎮 جم‌پلی</div>
-      <nav class="navbar">
-        <a href="../index.html">صفحه اصلی</a>
-        <a href="contact.html">تماس با ما</a>
-        <a href="about.html" class="active">درباره ما</a>
-        <a href="signin.html">ورود</a>
-        <a href="signup.html" class="btn-outline">ثبت‌نام</a>
-      </nav>
-    </div>
-  </header>
 
-  <!-- محتوای اصلی -->
-  <main class="content-wrapper">
-    <div class="about-card">
-      <h1>درباره جم‌پلی</h1>
-      <p>
-        جم‌پلی یک پلتفرمِ سریع و امن برای خرید جم، سی‌پی و آیتم‌های درون‌برنامه‌ای بازی‌هاست.
-        هدف ما ارائه‌ی تجربه‌ای ساده، شفاف و بدون دردسر برای گیمرهاست.
-      </p>
+    <!-- پس‌زمینه خطوط متحرک -->
+    <canvas id="bg-network" aria-hidden="true"></canvas>
 
-      <section class="about-mission">
-        <h2>ماموریت ما</h2>
-        <p>
-          فراهم کردن روش‌های پرداخت امن، پشتیبانی سریع و تحویل دقیق سفارش‌ها تا کاربر با خیال راحت خرید کند.
-        </p>
-      </section>
+    <!-- هدر -->
+    <header class="site-header">
+        <div class="logo">
+            <img src="../assets/images/logo.png" alt="RUBYBOX logo">
+            <span>روبی باکس</span>
+        </div>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="../index.html">خانه</a></li>
+                <li><a href="shorten.html">کوتاه‌کننده لینک</a></li>
+                <li><a href="upload.html">آپلود فایل</a></li>
+                <li><a href="services.html">خدمات</a></li>
+                <li><a class="active" href="about.html">درباره ما</a></li>
+                <li><a href="contact.html">تماس با ما</a></li>
+            </ul>
+        </nav>
+        <div class="auth-buttons">
+            <a href="signin.html" class="login-btn">ورود</a>
+            <a href="signup.html" class="signup-btn">ثبت‌نام</a>
+        </div>
+    </header>
 
-      <section class="about-features">
-        <h2>ویژگی‌ها</h2>
-        <ul>
-          <li>تحویل خودکار و سریع</li>
-          <li>پشتیبانی از بازی‌های محبوب (Call of Duty، PUBG و ...)</li>
-          <li>پشتیبانی آنلاین و پاسخ‌گویی سریع</li>
-          <li>پرداخت امن و رابط کاربری ساده</li>
-        </ul>
-      </section>
-    </div>
-  </main>
+    <!-- محتوای اصلی -->
+    <main class="main-content">
 
-  <footer class="site-footer">
-    <p>© 2025 جم‌پلی — تمامی حقوق محفوظ است 💙</p>
-  </footer>
+        <section class="about-section">
+
+            <h2>🧑‍💻 درباره من</h2>
+            <p>
+                من <strong>مسیح امینی</strong> هستم، دانشجوی رشته کامپیوتر دانشگاه مهاجر، ساکن اصفهان.
+                علاقه‌مند به طراحی وب، برنامه‌نویسی، و ساخت ابزارهای کاربردی برای کاربران.
+                روبی باکس یکی از پروژه‌هایی هست که برای تمرین و توسعه مهارت‌های برنامه‌نویسی و طراحی
+                به صورت کاملاً اختصاصی ساخته‌ام.
+            </p>
+
+            <hr>
+
+            <h2>📦 RubyBox چیست؟</h2>
+            <p>
+                روبی باکس یک سرویس کوچک اما کاربردی است که دو قابلیت اصلی را در اختیار کاربران قرار می‌دهد:
+            </p>
+
+            <ul class="features-list">
+                <li><strong>🔗 کوتاه‌کننده لینک</strong> — تبدیل لینک‌های بلند، نامرتب و سنگین به لینک‌های کوتاه، تمیز و
+                    قابل اشتراک‌گذاری.</li>
+                <li><strong>📤 آپلود فایل</strong> — آپلود فایل‌های مختلف و دریافت یک لینک دانلود مستقیم و سریع.</li>
+            </ul>
+
+            <p>
+                هدف این سرویس ساده‌سازی کارهای روزمره کاربران است. هرکسی که نیاز دارد لینک تمیز داشته باشد،
+                فایل با لینک مستقیم ارسال کند یا یک ابزار کوچک و سریع لازم دارد، RubyBox می‌تواند کمکش کند.
+            </p>
+
+            <hr>
+
+            <h2>🎯 هدف از ساخت این پروژه</h2>
+            <p>
+                هدف من از ساخت روبی باکس، تمرین و تقویت دانش برنامه‌نویسی فرانت‌اند و بک‌اند
+                (به‌خصوص توسعه جاوا) و ساخت یک محصول واقعی بود؛ محصولی که بتواند
+                هم زیبا باشد و هم کاربردی. روبی باکس به مرور زمان قابلیت‌های بیشتری نیز دریافت خواهد کرد.
+            </p>
+
+            <ul class="goals-list">
+                <li>⚙️ اضافه شدن سیستم آمارگیری دقیق لینک‌ها</li>
+                <li>🔐 ساخت حساب کاربری و داشبورد مدیریت</li>
+                <li>🗃️ مشاهده تاریخچه کوتاه‌سازی لینک و آپلود فایل</li>
+                <li>🚀 افزایش سرعت بک‌اند و بهینه‌سازی</li>
+            </ul>
+
+            <hr>
+
+            <h2>📬 راه های ارتباطی</h2>
+            <p>
+                اگر پیشنهادی داری یا باگی پیدا کردی، خوشحال می‌شم بهم اطلاع بدی 😊
+                <br>
+                <strong>ایمیل:</strong> example@email.com
+            </p>
+
+        </section>
+
+    </main>
+
+    <!-- فوتر -->
+    <footer class="site-footer">
+        © 2025 روبی باکس — ساخته شده با عشق و کدنویسی ❤️
+    </footer>
+
+    <!-- اسکریپت پس‌زمینه خطوط متحرک -->
+    <script>
+        (function () {
+            const canvas = document.getElementById("bg-network");
+            if (!canvas) return;
+            const ctx = canvas.getContext("2d");
+
+            const DENSITY = 12000;
+            const SPEED = 0.7;
+            const LINK_DISTANCE = 180;
+
+            let width, height, points;
+
+            function resize() {
+                width = canvas.width = window.innerWidth;
+                height = canvas.height = window.innerHeight;
+                createPoints();
+            }
+
+            function createPoints() {
+                const count = Math.floor((width * height) / DENSITY);
+                points = [];
+                for (let i = 0; i < count; i++) {
+                    points.push({
+                        x: Math.random() * width,
+                        y: Math.random() * height,
+                        vx: (Math.random() - 0.5) * SPEED,
+                        vy: (Math.random() - 0.5) * SPEED
+                    });
+                }
+            }
+
+            function step() {
+                ctx.clearRect(0, 0, width, height);
+
+                ctx.fillStyle = "rgba(33, 150, 243, 0.7)";
+                for (const p of points) {
+                    p.x += p.vx;
+                    p.y += p.vy;
+
+                    if (p.x < 0 || p.x > width) p.vx *= -1;
+                    if (p.y < 0 || p.y > height) p.vy *= -1;
+
+                    ctx.beginPath();
+                    ctx.arc(p.x, p.y, 2, 0, Math.PI * 2);
+                    ctx.fill();
+                }
+
+                for (let i = 0; i < points.length; i++) {
+                    for (let j = i + 1; j < points.length; j++) {
+                        const p1 = points[i];
+                        const p2 = points[j];
+                        const dx = p1.x - p2.x;
+                        const dy = p1.y - p2.y;
+                        const dist = Math.sqrt(dx * dx + dy * dy);
+
+                        if (dist < LINK_DISTANCE) {
+                            const alpha = 1 - dist / LINK_DISTANCE;
+                            ctx.strokeStyle = "rgba(33, 150, 243," + (0.25 * alpha) + ")";
+                            ctx.lineWidth = 1;
+                            ctx.beginPath();
+                            ctx.moveTo(p1.x, p1.y);
+                            ctx.lineTo(p2.x, p2.y);
+                            ctx.stroke();
+                        }
+                    }
+                }
+
+                requestAnimationFrame(step);
+            }
+
+            window.addEventListener("resize", resize);
+            resize();
+            step();
+        })();
+    </script>
+
 </body>
+
 </html>

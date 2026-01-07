@@ -20,4 +20,34 @@
     /* نقش‌های اضافی */
     --color-border: #d0d7de;
     --color-placeholder: #9e9e9e;
+
+    /* Design tokens - spacing */
+    --space-1: 4px;
+    --space-2: 8px;
+    --space-3: 12px;
+    --space-4: 16px;
+    --space-5: 24px;
+    --space-6: 32px;
+
+    /* Typography scale */
+    --font-base: 16px;
+    --font-size-sm: 0.875rem;
+    --font-size-md: 1rem;
+    --font-size-lg: 1.125rem;
+    --font-size-xl: 1.375rem;
+
+    /* Radiuses */
+    --radius-sm: 6px;
+    --radius-md: 12px;
+    --radius-lg: 20px;
+
+    /* Elevation / shadows */
+    --elevation-1: 0 6px 18px rgba(15, 35, 60, 0.06);
+    --elevation-2: 0 12px 28px rgba(15, 35, 60, 0.08);
+    --elevation-3: 0 18px 40px rgba(15, 35, 60, 0.12);
+
+    /* Motion */
+    --ease-fast: 150ms cubic-bezier(.4, 0, .2, 1);
+    --ease-medium: 220ms cubic-bezier(.4, 0, .2, 1);
+    --ease-slow: 320ms cubic-bezier(.4, 0, .2, 1);
 }

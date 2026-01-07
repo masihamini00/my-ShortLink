@@ -1,7 +1,6 @@
-/* صفحه ورود (مثل استایل بقیه صفحات) */
+/* صفحه فراموشی رمز عبور */
 
-/* کانتینر اصلی – بیاد روی canvas پس باید z-index داشته باشه */
-.signin-container {
+.forgot-container {
     min-height: 100vh;
     max-width: 1120px;
     margin: 0 auto;
@@ -12,15 +11,14 @@
     justify-content: center;
 
     position: relative;
-    z-index: 1; /* 👈 خیلی مهم: روی خطوط پس‌زمینه قرار بگیره */
+    z-index: 1; /* روی پس‌زمینه */
 }
 
-/* کارت ورود شبیه کارت‌های بقیه صفحات */
-.signin-card {
+.forgot-card {
     width: 100%;
     max-width: 420px;
 
-    background-color: #ffffff; /* کاملاً سفید، بدون شفافیت */
+    background-color: #ffffff;
     border-radius: 20px;
     padding: 26px 22px;
 
@@ -28,33 +26,32 @@
     border: 1px solid rgba(208, 215, 222, 0.8);
 
     text-align: center;
-
     position: relative;
-    z-index: 1; /* مطمئن باشیم روی هرچیز دیگه‌ای هست */
+    z-index: 1;
 }
 
-/* هدر کارت (لوگو + تیتر) */
-.signin-header img {
+/* بخش بالای کارت */
+.forgot-header img {
     width: 64px;
     margin-bottom: 10px;
     border-radius: 14px;
     box-shadow: 0 8px 18px rgba(15, 35, 60, 0.25);
 }
 
-.signin-header h2 {
+.forgot-header h2 {
     margin: 0;
     color: #0d47a1;
     font-size: 1.3rem;
 }
 
-.signin-header p {
+.forgot-header p {
     margin: 6px 0 18px;
     color: #546e7a;
     font-size: 0.9rem;
 }
 
-/* فرم ورود */
-.signin-form {
+/* فرم */
+.forgot-form {
     display: flex;
     flex-direction: column;
     gap: 12px;
@@ -73,7 +70,6 @@
     color: #37474f;
 }
 
-/* اینجا مهمه: پس‌زمینه کامل سفید و حاشیه شبیه بقیه صفحات */
 .field-group input {
     border: 2px solid #d0e2ff;
     background-color: #ffffff;
@@ -89,44 +85,31 @@
     box-shadow: 0 0 6px rgba(60,169,226,0.18);
 }
 
-/* لینک فراموشی رمز */
-.forget-link {
-    font-size: 0.85rem;
-    color: #1565c0;
-    text-decoration: none;
-    margin-top: -4px;
-    align-self: flex-end;
-}
-
-.forget-link:hover {
-    text-decoration: underline;
-}
-
-/* دکمه ورود؛ از .btn .btn-primary عمومی استفاده می‌کنیم */
-.signin-submit {
+/* دکمه ارسال */
+.forgot-submit {
     margin-top: 10px;
     width: 100%;
 }
 
-/* متن پایین فرم (ثبت‌نام) */
-.signin-footer {
+/* متن پایین فرم */
+.forgot-footer {
     margin-top: 14px;
     font-size: 0.9rem;
     color: #546e7a;
     text-align: center;
 }
 
-.signin-footer a {
+.forgot-footer a {
     color: #1565c0;
     font-weight: 600;
     text-decoration: none;
 }
 
-.signin-footer a:hover {
+.forgot-footer a:hover {
     text-decoration: underline;
 }
 
-/* لینک برگشت به خانه */
+/* برگشت به خانه */
 .back-home {
     display: inline-block;
     margin-top: 10px;
@@ -141,11 +124,11 @@
 
 /* ریسپانسیو */
 @media (max-width: 600px) {
-    .signin-container {
+    .forgot-container {
         padding: 30px 16px 40px;
     }
 
-    .signin-card {
+    .forgot-card {
         padding: 22px 18px;
     }
 }

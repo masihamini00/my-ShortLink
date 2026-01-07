@@ -1,47 +1,54 @@
-.about-container {
-  max-width: 800px;
-  margin: 3rem auto;
-  padding: 2rem;
-  background-color: var(--color-surface);
-  border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+/* صفحه درباره ما */
+
+.main-content {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 40px 20px 60px;
+    flex: 1;
 }
 
-.about-container h1,
-.about-container h2 {
-  color: var(--color-primary);
+.about-section {
+    background-color: rgba(255, 255, 255, 0.96);
+    padding: 28px 24px 26px;
+    border-radius: 20px;
+    box-shadow: 0 18px 40px rgba(15, 35, 60, 0.12);
+    border: 1px solid rgba(208, 215, 222, 0.7);
+    line-height: 1.9;
 }
 
-.about-container p {
-  line-height: 1.8;
-  color: var(--color-on-surface);
-  margin-bottom: 1.5rem;
+.about-section h2 {
+    color: #0d47a1;
+    margin-bottom: 8px;
+    font-size: 1.3rem;
 }
 
-.features ul {
-  list-style: none;
-  padding: 0;
+.about-section p {
+    color: #455a64;
+    margin-bottom: 18px;
+    font-size: 0.98rem;
 }
 
-.features li {
-  background-color: var(--color-background);
-  border: 1px solid var(--color-border);
-  padding: 0.8rem 1rem;
-  margin: 0.5rem 0;
-  border-radius: 8px;
-  transition: background-color 0.2s ease;
+hr {
+    border: none;
+    border-top: 1px solid rgba(200, 200, 200, 0.55);
+    margin: 20px 0;
 }
 
-.features li:hover {
-  background-color: #e3f2fd;
+.features-list,
+.goals-list {
+    margin: 10px 0 20px;
+    padding-right: 22px;
+    color: #37474f;
 }
 
-.footer {
-  text-align: center;
-  padding: 1rem;
-  background-color: var(--color-surface);
-  border-top: 1px solid var(--color-border);
-  margin-top: 2rem;
-  color: var(--color-on-surface);
-  font-size: 0.9rem;
+.features-list li,
+.goals-list li {
+    margin-bottom: 10px;
+    font-size: 0.95rem;
+}
+
+@media (max-width: 700px) {
+    .about-section {
+        padding: 20px 16px;
+    }
 }

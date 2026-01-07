@@ -1,53 +1,152 @@
 <!DOCTYPE html>
-<html lang="fa">
+<html lang="fa" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ثبت‌نام</title>
-  <link rel="stylesheet" href="../assets/css/variables.css">
-  <link rel="stylesheet" href="../assets/css/main.css">
-  <link rel="stylesheet" href="../assets/css/pages/signup.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ثبت‌نام | روبی باکس</title>
+
+    <link rel="stylesheet" href="../assets/css/variables.css">
+    <link rel="stylesheet" href="../assets/css/main.css">
+    <link rel="stylesheet" href="../assets/css/pages/signup.css">
+
+    <!-- اگر فاوآیکون داری -->
+    <!-- <link rel="icon" type="image/png" href="../assets/images/logo-64.png"> -->
 </head>
 <body>
-  <!-- 🔹 هدر ثابت سایت -->
-  <header class="site-header">
-    <div class="container">
-      <div class="logo">🎮 جم‌پلی</div>
-      <nav class="navbar">
-        <a href="../index.html">صفحه اصلی</a>
-        <a href="contact.html">تماس با ما</a>
-        <a href="about.html">درباره ما</a>
-        <a href="signin.html" class="btn-outline">ورود</a>
-      </nav>
-    </div>
-  </header>
 
-  <!-- 🔹 فرم ثبت‌نام -->
-  <div class="signup-container">
-    <div class="signup-card">
-      <h1 class="signup-title">ثبت‌نام</h1>
+    <!-- پس‌زمینه خطوط متحرک -->
+    <canvas id="bg-network" aria-hidden="true"></canvas>
 
-      <form class="signup-form" action="#">
-        <label for="username">نام کاربری</label>
-        <input type="text" id="username" placeholder="نام کاربری خود را وارد کنید">
+    <main class="signup-container">
 
-        <label for="email">ایمیل</label>
-        <input type="email" id="email" placeholder="ایمیل خود را وارد کنید">
+        <div class="signup-card">
 
-        <label for="password">رمز عبور</label>
-        <input type="password" id="password" placeholder="رمز عبور خود را وارد کنید">
+            <div class="signup-header">
+                <img src="../assets/images/logo.png" alt="logo">
+                <h2>ثبت‌نام در روبی باکس</h2>
+                <p>یک حساب کاربری جدید بساز</p>
+            </div>
 
-        <label for="confirm-password">تکرار رمز عبور</label>
-        <input type="password" id="confirm-password" placeholder="رمز عبور را دوباره وارد کنید">
+            <form class="signup-form" action="#" method="post">
 
-        <button type="submit" class="btn-primary">ثبت‌نام</button>
+                <div class="field-group">
+                    <label for="fullname">نام و نام خانوادگی:</label>
+                    <input id="fullname" type="text" placeholder="مثال: مسیح امینی" required>
+                </div>
 
-        <p class="signin-text">
-          قبلاً حساب دارید؟
-          <a href="signin.html">وارد شوید</a>
-        </p>
-      </form>
-    </div>
-  </div>
+                <div class="field-group">
+                    <label for="email">ایمیل:</label>
+                    <input id="email" type="email" placeholder="email@example.com" required>
+                </div>
+
+                <div class="field-group">
+                    <label for="password">رمز عبور:</label>
+                    <input id="password" type="password" placeholder="حداقل ۶ کاراکتر" required>
+                </div>
+
+                <div class="field-group">
+                    <label for="confirm">تکرار رمز عبور:</label>
+                    <input id="confirm" type="password" placeholder="رمز عبور را تکرار کن" required>
+                </div>
+
+                <label class="terms-row">
+                    <input type="checkbox" required>
+                    <span>شرایط استفاده از روبی باکس را می‌پذیرم.</span>
+                </label>
+
+                <button type="submit" class="btn btn-primary signup-submit">
+                    ایجاد حساب کاربری
+                </button>
+
+                <div class="signup-footer">
+                    <p>قبلاً ثبت‌نام کرده‌ای؟</p>
+                    <a href="signin.html">ورود</a>
+                </div>
+
+                <a class="back-home" href="../index.html">← بازگشت به خانه</a>
+
+            </form>
+
+        </div>
+
+    </main>
+
+    <!-- اسکریپت پس‌زمینه خطوط متحرک (با مقادیر ثابت تو) -->
+    <script>
+        (function () {
+            const canvas = document.getElementById("bg-network");
+            if (!canvas) return;
+            const ctx = canvas.getContext("2d");
+
+            const DENSITY = 12000;
+            const SPEED = 0.7;
+            const LINK_DISTANCE = 180;
+
+            let width, height, points;
+
+            function resize() {
+                width = canvas.width = window.innerWidth;
+                height = canvas.height = window.innerHeight;
+                createPoints();
+            }
+
+            function createPoints() {
+                const count = Math.floor((width * height) / DENSITY);
+                points = [];
+                for (let i = 0; i < count; i++) {
+                    points.push({
+                        x: Math.random() * width,
+                        y: Math.random() * height,
+                        vx: (Math.random() - 0.5) * SPEED,
+                        vy: (Math.random() - 0.5) * SPEED
+                    });
+                }
+            }
+
+            function step() {
+                ctx.clearRect(0, 0, width, height);
+
+                ctx.fillStyle = "rgba(33, 150, 243, 0.7)";
+                for (const p of points) {
+                    p.x += p.vx;
+                    p.y += p.vy;
+
+                    if (p.x < 0 || p.x > width) p.vx *= -1;
+                    if (p.y < 0 || p.y > height) p.vy *= -1;
+
+                    ctx.beginPath();
+                    ctx.arc(p.x, p.y, 2, 0, Math.PI * 2);
+                    ctx.fill();
+                }
+
+                for (let i = 0; i < points.length; i++) {
+                    for (let j = i + 1; j < points.length; j++) {
+                        const p1 = points[i];
+                        const p2 = points[j];
+                        const dx = p1.x - p2.x;
+                        const dy = p1.y - p2.y;
+                        const dist = Math.sqrt(dx * dx + dy * dy);
+
+                        if (dist < LINK_DISTANCE) {
+                            const alpha = 1 - dist / LINK_DISTANCE;
+                            ctx.strokeStyle = "rgba(33, 150, 243," + (0.25 * alpha) + ")";
+                            ctx.lineWidth = 1;
+                            ctx.beginPath();
+                            ctx.moveTo(p1.x, p1.y);
+                            ctx.lineTo(p2.x, p2.y);
+                            ctx.stroke();
+                        }
+                    }
+                }
+
+                requestAnimationFrame(step);
+            }
+
+            window.addEventListener("resize", resize);
+            resize();
+            step();
+        })();
+    </script>
+
 </body>
 </html>

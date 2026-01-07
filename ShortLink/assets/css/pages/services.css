@@ -1,0 +1,88 @@
+/* استایل‌های صفحه خدمات و کارت‌ها */
+
+.services-hero {
+    text-align: right;
+    margin: calc(var(--space-4)) 0 calc(var(--space-5));
+}
+
+.services-hero h1 {
+    margin: 0 0 calc(var(--space-2));
+    font-size: var(--font-size-xl);
+    color: var(--color-secondary);
+}
+
+.services-hero .subtitle {
+    color: #546e7a;
+    margin: 0;
+    font-size: var(--font-size-md);
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: var(--space-4);
+    margin-top: var(--space-3);
+}
+
+.service-card {
+    background-color: var(--color-surface);
+    border-radius: var(--radius-md);
+    padding: var(--space-4);
+    text-align: right;
+    box-shadow: var(--elevation-1);
+    border: 1px solid var(--color-border);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    transition: transform var(--ease-medium), box-shadow var(--ease-medium);
+}
+
+.service-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--elevation-2);
+}
+
+.card-media {
+    font-size: 28px;
+    width: 60px;
+    height: 60px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-sm);
+    background: linear-gradient(135deg, rgba(66, 165, 245, 0.08), rgba(126, 87, 194, 0.06));
+    color: var(--color-secondary);
+}
+
+.card-title {
+    margin: 0;
+    font-size: var(--font-size-lg);
+    color: var(--color-secondary);
+}
+
+.card-price {
+    margin: 0;
+    font-weight: 700;
+    color: #1a237e;
+}
+
+.card-features {
+    margin: 6px 0 0;
+    padding-right: 16px;
+    list-style: disc;
+    color: #455a64;
+}
+
+.card-actions {
+    margin-top: auto;
+    display: flex;
+    gap: var(--space-3);
+}
+
+@media (max-width: 640px) {
+    .card-media {
+        width: 52px;
+        height: 52px;
+        font-size: 24px;
+    }
+}

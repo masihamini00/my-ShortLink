@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ورود | روبی باکس</title>
+    <title>تنظیم رمز جدید | روبی باکس</title>
 
     <link rel="stylesheet" href="../assets/css/variables.css">
     <link rel="stylesheet" href="../assets/css/main.css">
-    <link rel="stylesheet" href="../assets/css/pages/signin.css">
+    <link rel="stylesheet" href="../assets/css/pages/reset.css">
     <link rel="icon" type="image/png" href="../assets/images/logo.png">
     <link rel="shortcut icon" href="../assets/images/logo.png">
 
@@ -19,48 +19,48 @@
     <!-- پس‌زمینه خطوط متحرک -->
     <canvas id="bg-network" aria-hidden="true"></canvas>
 
-    <main class="signin-container">
+    <main class="reset-container">
 
-        <div class="signin-card">
+        <div class="reset-card">
 
-            <div class="signin-header">
+            <div class="reset-header">
                 <img src="../assets/images/logo.png" alt="logo">
-                <h2>ورود به روبی باکس</h2>
-                <p>حساب کاربری خودت را وارد کن</p>
+                <h2>تنظیم رمز عبور جدید</h2>
+                <p>یک رمز عبور جدید برای حساب خودت انتخاب کن</p>
             </div>
 
-            <form class="signin-form" action="#" method="post">
+            <!-- در عمل این صفحه معمولاً با توکن لینک میاد (مثلاً ?token=XYZ) -->
+            <form class="reset-form" action="#" method="post">
+                <!-- اگر بعداً بک‌اند نوشتی، می‌تونی این توکن رو hidden کنی -->
+                <!-- <input type="hidden" name="token" value="..."> -->
 
                 <div class="field-group">
-                    <label for="email">ایمیل:</label>
-                    <input id="email" type="email" placeholder="email@example.com" required>
+                    <label for="password">رمز عبور جدید:</label>
+                    <input id="password" name="password" type="password" placeholder="حداقل ۶ کاراکتر" required>
                 </div>
 
                 <div class="field-group">
-                    <label for="password">رمز عبور:</label>
-                    <input id="password" type="password" placeholder="******" required>
+                    <label for="confirm">تکرار رمز عبور:</label>
+                    <input id="confirm" name="confirm" type="password" placeholder="رمز عبور را تکرار کن" required>
                 </div>
 
-                <a class="forget-link" href="forgot.html">رمز عبور را فراموش کرده‌ام</a>
-
-                <button type="submit" class="btn btn-primary signin-submit">
-                    ورود به حساب
+                <button type="submit" class="btn btn-primary reset-submit">
+                    ذخیره رمز عبور جدید
                 </button>
 
-                <div class="signin-footer">
-                    <p>حساب کاربری نداری؟</p>
-                    <a href="signup.html">ثبت‌نام</a>
+                <div class="reset-footer">
+                    <p>بعد از تنظیم رمز جدید می‌تونی وارد حساب شوی.</p>
+                    <a href="signin.html">رفتن به صفحه ورود</a>
                 </div>
 
                 <a class="back-home" href="../index.html">← بازگشت به خانه</a>
-
             </form>
 
         </div>
 
     </main>
 
-    <!-- اسکریپت پس‌زمینه خطوط متحرک (با مقادیر ثابت شما) -->
+    <!-- اسکریپت پس‌زمینه خطوط متحرک (همون تنظیم‌های ثابت تو) -->
     <script>
         (function () {
             const canvas = document.getElementById("bg-network");

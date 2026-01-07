@@ -1,51 +1,200 @@
 <!DOCTYPE html>
-<html lang="fa">
+<html lang="fa" dir="rtl">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>تماس با ما | جم‌پلی</title>
-  <link rel="stylesheet" href="../assets/css/variables.css">
-  <link rel="stylesheet" href="../assets/css/main.css">
-  <link rel="stylesheet" href="../assets/css/pages/contact.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تماس با ما | روبی باکس</title>
+
+    <link rel="stylesheet" href="../assets/css/variables.css">
+    <link rel="stylesheet" href="../assets/css/main.css">
+    <link rel="stylesheet" href="../assets/css/pages/contact.css">
+    <link rel="icon" type="image/png" href="../assets/images/logo.png">
+    <link rel="shortcut icon" href="../assets/images/logo.png">
+    <!-- اگر فاوآیکون داری اینو آن‌کامنت کن -->
+    <!-- <link rel="icon" type="image/png" href="../assets/images/logo-64.png"> -->
 </head>
+
 <body>
-  <!-- 🔹 هدر ثابت -->
-  <header class="site-header">
-    <div class="container">
-      <div class="logo">🎮 جم‌پلی</div>
-      <nav class="navbar">
-        <a href="../index.html">صفحه اصلی</a>
-        <a href="contact.html" class="active">تماس با ما</a>
-        <a href="about.html">درباره ما</a>
-        <a href="signin.html" class="btn-outline">ورود</a>
-      </nav>
-    </div>
-  </header>
 
-  <!-- 🔹 بخش تماس -->
-  <section class="contact-section">
-    <div class="contact-container">
-      <h1>ارتباط با ما</h1>
-      <p>اگر سوالی، پیشنهادی یا مشکلی دارید، با ما در ارتباط باشید 💬</p>
+    <!-- پس‌زمینه خطوط متحرک -->
+    <canvas id="bg-network" aria-hidden="true"></canvas>
 
-      <form class="contact-form" action="#">
-        <label for="name">نام</label>
-        <input type="text" id="name" placeholder="نام شما">
+    <!-- هدر -->
+    <header class="site-header">
+        <div class="logo">
+            <img src="../assets/images/logo.png" alt="RUBYBOX logo">
+            <span>روبی باکس</span>
+        </div>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="../index.html">خانه</a></li>
+                <li><a href="shorten.html">کوتاه‌کننده لینک</a></li>
+                <li><a href="upload.html">آپلود فایل</a></li>
+                <li><a href="services.html">خدمات</a></li>
+                <li><a href="about.html">درباره ما</a></li>
+                <li><a href="contact.html" class="active">تماس با ما</a></li>
+            </ul>
+        </nav>
+        <div class="auth-buttons">
+            <a href="signin.html" class="login-btn">ورود</a>
+            <a href="signup.html" class="signup-btn">ثبت‌نام</a>
+        </div>
+    </header>
 
-        <label for="email">ایمیل</label>
-        <input type="email" id="email" placeholder="ایمیل شما">
+    <!-- محتوای اصلی -->
+    <main class="main-content">
 
-        <label for="message">پیام</label>
-        <textarea id="message" rows="5" placeholder="پیام خود را بنویسید..."></textarea>
+        <section class="contact-section">
+            <h2>📨 تماس با ما</h2>
+            <p class="contact-intro">
+                اگر پیشنهاد، انتقاد، ایدهٔ جدید یا مشکلی در استفاده از روبی باکس داری،
+                می‌تونی با فرم زیر برام پیام بفرستی. خوشحال می‌شم نظرت رو بدونم 😊
+            </p>
 
-        <button type="submit" class="btn-primary">ارسال پیام</button>
-      </form>
-    </div>
-  </section>
+            <div class="contact-content">
 
-  <!-- 🔹 فوتر -->
-  <footer class="site-footer">
-    <p>© 2025 جم‌پلی — تمامی حقوق محفوظ است 💙</p>
-  </footer>
+                <!-- فرم تماس -->
+                <div class="contact-form-card">
+                    <form class="contact-form" action="#" method="post">
+
+                        <div class="field-row">
+                            <div class="field-group">
+                                <label for="name">نام شما:</label>
+                                <input id="name" name="name" type="text" placeholder="مثال: مسیح امینی" required>
+                            </div>
+
+                            <div class="field-group">
+                                <label for="email">ایمیل:</label>
+                                <input id="email" name="email" type="email" placeholder="email@example.com" required>
+                            </div>
+                        </div>
+
+                        <div class="field-group">
+                            <label for="subject">موضوع پیام:</label>
+                            <input id="subject" name="subject" type="text" placeholder="مثال: پیشنهاد برای بهبود سایت">
+                        </div>
+
+                        <div class="field-group">
+                            <label for="message">متن پیام:</label>
+                            <textarea id="message" name="message" rows="4"
+                                placeholder="اینجا پیامت رو بنویس..."></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary contact-submit">
+                            ارسال پیام
+                        </button>
+                    </form>
+                </div>
+
+                <!-- باکس اطلاعات -->
+                <aside class="contact-info-card">
+                    <h3>راه‌های ارتباطی</h3>
+                    <p>
+                        این پروژه توسط <strong>مسیح امینی</strong>، دانشجوی رشته کامپیوتر دانشگاه مهاجر و
+                        ساکن اصفهان ساخته شده. اگر باگی پیدا کردی یا ایده‌ای برای امکانات جدید داشتی،
+                        خیلی خوشحال می‌شم خبر بدی 🙌
+                    </p>
+
+                    <ul>
+                        <li><span>📍 شهر:</span> اصفهان</li>
+                        <li><span>🎓 رشته:</span> مهندسی کامپیوتر</li>
+                        <li><span>📦 پروژه:</span> سرویس کوتاه‌کننده لینک و آپلود فایل (RubyBox)</li>
+                    </ul>
+
+                    <p class="contact-note">
+                        در نسخه‌های بعدی، فرم تماس می‌تونه مستقیماً به بک‌اند وصل بشه
+                        تا پیام‌ها در پنل مدیریت ذخیره و بررسی بشن.
+                    </p>
+                </aside>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- فوتر -->
+    <footer class="site-footer">
+        © 2025 روبی باکس — ساخته شده با عشق و کدنویسی ❤️
+    </footer>
+
+    <!-- اسکریپت پس‌زمینه خطوط متحرک (همون تنظیمات قبلی) -->
+    <script>
+        (function () {
+            const canvas = document.getElementById("bg-network");
+            if (!canvas) return;
+            const ctx = canvas.getContext("2d");
+
+            const DENSITY = 12000;
+            const SPEED = 0.7;
+            const LINK_DISTANCE = 180;
+
+            let width, height, points;
+
+            function resize() {
+                width = canvas.width = window.innerWidth;
+                height = canvas.height = window.innerHeight;
+                createPoints();
+            }
+
+            function createPoints() {
+                const count = Math.floor((width * height) / DENSITY);
+                points = [];
+                for (let i = 0; i < count; i++) {
+                    points.push({
+                        x: Math.random() * width,
+                        y: Math.random() * height,
+                        vx: (Math.random() - 0.5) * SPEED,
+                        vy: (Math.random() - 0.5) * SPEED
+                    });
+                }
+            }
+
+            function step() {
+                ctx.clearRect(0, 0, width, height);
+
+                ctx.fillStyle = "rgba(33, 150, 243, 0.7)";
+                for (const p of points) {
+                    p.x += p.vx;
+                    p.y += p.vy;
+
+                    if (p.x < 0 || p.x > width) p.vx *= -1;
+                    if (p.y < 0 || p.y > height) p.vy *= -1;
+
+                    ctx.beginPath();
+                    ctx.arc(p.x, p.y, 2, 0, Math.PI * 2);
+                    ctx.fill();
+                }
+
+                for (let i = 0; i < points.length; i++) {
+                    for (let j = i + 1; j < points.length; j++) {
+                        const p1 = points[i];
+                        const p2 = points[j];
+                        const dx = p1.x - p2.x;
+                        const dy = p1.y - p2.y;
+                        const dist = Math.sqrt(dx * dx + dy * dy);
+
+                        if (dist < LINK_DISTANCE) {
+                            const alpha = 1 - dist / LINK_DISTANCE;
+                            ctx.strokeStyle = "rgba(33, 150, 243," + (0.25 * alpha) + ")";
+                            ctx.lineWidth = 1;
+                            ctx.beginPath();
+                            ctx.moveTo(p1.x, p1.y);
+                            ctx.lineTo(p2.x, p2.y);
+                            ctx.stroke();
+                        }
+                    }
+                }
+
+                requestAnimationFrame(step);
+            }
+
+            window.addEventListener("resize", resize);
+            resize();
+            step();
+        })();
+    </script>
+
 </body>
+
 </html>

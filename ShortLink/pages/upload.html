@@ -1,56 +1,176 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>آپلود فایل | روبی باکس</title>
 
-    <!-- بارگذاری متغیرها و استایل سراسری (برای یکنواختی رنگ و هدر/فوتر) -->
     <link rel="stylesheet" href="../assets/css/variables.css">
     <link rel="stylesheet" href="../assets/css/main.css">
-    <!-- استایل مخصوص این صفحه -->
     <link rel="stylesheet" href="../assets/css/pages/upload.css">
+    <link rel="icon" type="image/png" href="../assets/images/logo.png">
+    <link rel="shortcut icon" href="../assets/images/logo.png">
 </head>
+
 <body>
 
+    <!-- پس‌زمینه خطوط -->
+    <canvas id="bg-network" aria-hidden="true"></canvas>
+
+    <!-- هدر -->
     <header class="site-header">
-        <div class="logo">روبی باکس</div>
-        <nav class="main-nav" aria-label="منوی اصلی">
+        <div class="logo">
+            <img src="../assets/images/logo.png" alt="logo">
+            <span>روبی باکس</span>
+        </div>
+        <nav class="main-nav">
             <ul>
-                <li><a href="../index.html">صفحه اصلی</a></li>
+                <li><a href="../index.html">خانه</a></li>
                 <li><a href="shorten.html">کوتاه‌کننده لینک</a></li>
-                <li><a href="upload.html" class="active">آپلود فایل</a></li>
+                <li><a class="active" href="upload.html">آپلود فایل</a></li>
+                <li><a href="services.html">خدمات</a></li>
                 <li><a href="about.html">درباره ما</a></li>
                 <li><a href="contact.html">تماس با ما</a></li>
             </ul>
         </nav>
+        <div class="auth-buttons">
+            <a href="signin.html" class="login-btn">ورود</a>
+            <a href="signup.html" class="signup-btn">ثبت‌نام</a>
+        </div>
     </header>
 
+    <!-- محتوای اصلی -->
     <main class="main-content">
-        <section class="upload-section" aria-labelledby="upload-title">
-            <h2 id="upload-title">📤 آپلود فایل</h2>
-            <p>فایل مورد نظرت رو انتخاب کن تا لینک دانلودش برات ساخته بشه.</p>
 
-            <form class="upload-form" enctype="multipart/form-data" action="#" method="post">
+        <section class="upload-section">
+
+            <h2>📤 آپلود فایل</h2>
+            <p>فایل مورد نظرت رو انتخاب کن تا لینک دانلودش ساخته بشه.</p>
+
+            <!-- مراحل -->
+            <div class="upload-steps">
+                <div class="step-card">
+                    <span class="step-number">۱</span>
+                    <h3>کلیک</h3>
+                    <p>روی انتخاب فایل کلیک کن</p>
+                </div>
+                <div class="step-card">
+                    <span class="step-number">۲</span>
+                    <h3>انتخاب فایل</h3>
+                    <p>فایل رو از سیستم انتخاب کن</p>
+                </div>
+                <div class="step-card">
+                    <span class="step-number">۳</span>
+                    <h3>تحویل لینک دانلود</h3>
+                    <p>لینک مستقیم فایل رو دریافت کن</p>
+                </div>
+            </div>
+
+            <!-- فرم آپلود -->
+            <form class="upload-form" enctype="multipart/form-data" method="post" action="#">
                 <label for="fileInput">انتخاب فایل:</label>
-                <input type="file" id="fileInput" name="fileInput" required>
+                <input id="fileInput" type="file" name="fileInput" required>
 
                 <label for="desc">توضیح فایل (اختیاری):</label>
-                <textarea id="desc" name="desc" placeholder="مثلاً: تصویر پروفایل جدید..." rows="4"></textarea>
+                <textarea id="desc" name="desc" rows="4" placeholder="مثال: تصویر پروفایل جدید"></textarea>
 
-                <button type="submit" class="btn-primary">آپلود فایل</button>
+                <button type="submit" class="btn btn-primary">آپلود فایل</button>
             </form>
 
-            <aside class="result-box" aria-live="polite" style="display:none;">
-                <p>🔗 لینک فایل آپلودشده:</p>
-                <input type="text" readonly value="https://jemplay.ir/dl/abc123">
-                <button class="btn-primary" onclick="/* copy logic */">کپی لینک</button>
-            </aside>
+            <!-- نتیجه -->
+            <div class="result-box" style="display:none;">
+                <p>🔗 لینک فایل آپلود شده:</p>
+                <input type="text" readonly value="https://rubybox.ir/dl/abc123">
+                <button class="btn btn-primary">کپی لینک</button>
+            </div>
+
         </section>
+
     </main>
 
+    <!-- فوتر -->
     <footer class="site-footer">
-        <p>© 2025 روبی باکس | تمامی حقوق محفوظ است</p>
+        © 2025 روبی باکس — ساخته شده با عشق و کدنویسی ❤️
     </footer>
+
+
+    <!-- اسکریپت پس‌زمینه خطوط -->
+    <script>
+        (function () {
+            const canvas = document.getElementById("bg-network");
+            if (!canvas) return;
+            const ctx = canvas.getContext("2d");
+
+            const DENSITY = 12000;   // نقاط بیشتر
+            const SPEED = 0.7;       // سرعت بیشتر
+            const LINK_DISTANCE = 180;
+
+            let width, height, points;
+
+            function resize() {
+                width = canvas.width = window.innerWidth;
+                height = canvas.height = window.innerHeight;
+                createPoints();
+            }
+
+            function createPoints() {
+                const count = Math.floor((width * height) / DENSITY);
+                points = [];
+                for (let i = 0; i < count; i++) {
+                    points.push({
+                        x: Math.random() * width,
+                        y: Math.random() * height,
+                        vx: (Math.random() - 0.5) * SPEED,
+                        vy: (Math.random() - 0.5) * SPEED
+                    });
+                }
+            }
+
+            function step() {
+                ctx.clearRect(0, 0, width, height);
+
+                ctx.fillStyle = "rgba(33, 150, 243, 0.7)";
+                for (const p of points) {
+                    p.x += p.vx;
+                    p.y += p.vy;
+
+                    if (p.x < 0 || p.x > width) p.vx *= -1;
+                    if (p.y < 0 || p.y > height) p.vy *= -1;
+
+                    ctx.beginPath();
+                    ctx.arc(p.x, p.y, 2, 0, Math.PI * 2);
+                    ctx.fill();
+                }
+
+                for (let i = 0; i < points.length; i++) {
+                    for (let j = i + 1; j < points.length; j++) {
+                        const p1 = points[i];
+                        const p2 = points[j];
+                        const dx = p1.x - p2.x;
+                        const dy = p1.y - p2.y;
+                        const dist = Math.sqrt(dx * dx + dy * dy);
+
+                        if (dist < LINK_DISTANCE) {
+                            const alpha = 1 - dist / LINK_DISTANCE;
+                            ctx.strokeStyle = "rgba(33, 150, 243," + (0.25 * alpha) + ")";
+                            ctx.lineWidth = 1;
+                            ctx.beginPath();
+                            ctx.moveTo(p1.x, p1.y);
+                            ctx.lineTo(p2.x, p2.y);
+                            ctx.stroke();
+                        }
+                    }
+                }
+                requestAnimationFrame(step);
+            }
+
+            window.addEventListener("resize", resize);
+            resize();
+            step();
+        })();
+    </script>
+
 </body>
+
 </html>

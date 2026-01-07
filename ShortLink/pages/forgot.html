@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ورود | روبی باکس</title>
+    <title>فراموشی رمز عبور | روبی باکس</title>
 
     <link rel="stylesheet" href="../assets/css/variables.css">
     <link rel="stylesheet" href="../assets/css/main.css">
-    <link rel="stylesheet" href="../assets/css/pages/signin.css">
+    <link rel="stylesheet" href="../assets/css/pages/forgot.css">
     <link rel="icon" type="image/png" href="../assets/images/logo.png">
     <link rel="shortcut icon" href="../assets/images/logo.png">
 
@@ -19,37 +19,30 @@
     <!-- پس‌زمینه خطوط متحرک -->
     <canvas id="bg-network" aria-hidden="true"></canvas>
 
-    <main class="signin-container">
+    <main class="forgot-container">
 
-        <div class="signin-card">
+        <div class="forgot-card">
 
-            <div class="signin-header">
+            <div class="forgot-header">
                 <img src="../assets/images/logo.png" alt="logo">
-                <h2>ورود به روبی باکس</h2>
-                <p>حساب کاربری خودت را وارد کن</p>
+                <h2>بازیابی رمز عبور</h2>
+                <p>ایمیل خود را وارد کنید تا لینک بازیابی برای شما ارسال شود</p>
             </div>
 
-            <form class="signin-form" action="#" method="post">
+            <form class="forgot-form" action="#" method="post">
 
                 <div class="field-group">
                     <label for="email">ایمیل:</label>
                     <input id="email" type="email" placeholder="email@example.com" required>
                 </div>
 
-                <div class="field-group">
-                    <label for="password">رمز عبور:</label>
-                    <input id="password" type="password" placeholder="******" required>
-                </div>
-
-                <a class="forget-link" href="forgot.html">رمز عبور را فراموش کرده‌ام</a>
-
-                <button type="submit" class="btn btn-primary signin-submit">
-                    ورود به حساب
+                <button type="submit" class="btn btn-primary forgot-submit">
+                    ارسال لینک بازیابی
                 </button>
 
-                <div class="signin-footer">
-                    <p>حساب کاربری نداری؟</p>
-                    <a href="signup.html">ثبت‌نام</a>
+                <div class="forgot-footer">
+                    <p>یادِت اومد؟</p>
+                    <a href="signin.html">بازگشت به صفحه ورود</a>
                 </div>
 
                 <a class="back-home" href="../index.html">← بازگشت به خانه</a>
@@ -60,7 +53,7 @@
 
     </main>
 
-    <!-- اسکریپت پس‌زمینه خطوط متحرک (با مقادیر ثابت شما) -->
+    <!-- اسکریپت پس‌زمینه خطوط متحرک -->
     <script>
         (function () {
             const canvas = document.getElementById("bg-network");
